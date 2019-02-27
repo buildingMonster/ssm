@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiang.ssm.yrn.mapper.UserFavoriteMapper" >
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.UserFavorite" >
+    <constructor >
+      <idArg column="fav_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="fav_user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fav_blog_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fav_folder" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fav_folder_far" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fav_folder_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fav_id, fav_user_id, fav_blog_id, fav_folder, fav_folder_far, fav_folder_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_favorite
+    where fav_id = #{fav_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_favorite
+    where fav_id = #{fav_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.UserFavorite" >
+    insert into user_favorite (fav_id, fav_user_id, fav_blog_id, 
+      fav_folder, fav_folder_far, fav_folder_name
+      )
+    values (#{fav_id,jdbcType=BIGINT}, #{fav_user_id,jdbcType=VARCHAR}, #{fav_blog_id,jdbcType=VARCHAR}, 
+      #{fav_folder,jdbcType=VARCHAR}, #{fav_folder_far,jdbcType=VARCHAR}, #{fav_folder_name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.UserFavorite" >
+    insert into user_favorite
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fav_id != null" >
+        fav_id,
+      </if>
+      <if test="fav_user_id != null" >
+        fav_user_id,
+      </if>
+      <if test="fav_blog_id != null" >
+        fav_blog_id,
+      </if>
+      <if test="fav_folder != null" >
+        fav_folder,
+      </if>
+      <if test="fav_folder_far != null" >
+        fav_folder_far,
+      </if>
+      <if test="fav_folder_name != null" >
+        fav_folder_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fav_id != null" >
+        #{fav_id,jdbcType=BIGINT},
+      </if>
+      <if test="fav_user_id != null" >
+        #{fav_user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_blog_id != null" >
+        #{fav_blog_id,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_folder != null" >
+        #{fav_folder,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_folder_far != null" >
+        #{fav_folder_far,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_folder_name != null" >
+        #{fav_folder_name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.UserFavorite" >
+    update user_favorite
+    <set >
+      <if test="fav_user_id != null" >
+        fav_user_id = #{fav_user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_blog_id != null" >
+        fav_blog_id = #{fav_blog_id,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_folder != null" >
+        fav_folder = #{fav_folder,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_folder_far != null" >
+        fav_folder_far = #{fav_folder_far,jdbcType=VARCHAR},
+      </if>
+      <if test="fav_folder_name != null" >
+        fav_folder_name = #{fav_folder_name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fav_id = #{fav_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.UserFavorite" >
+    update user_favorite
+    set fav_user_id = #{fav_user_id,jdbcType=VARCHAR},
+      fav_blog_id = #{fav_blog_id,jdbcType=VARCHAR},
+      fav_folder = #{fav_folder,jdbcType=VARCHAR},
+      fav_folder_far = #{fav_folder_far,jdbcType=VARCHAR},
+      fav_folder_name = #{fav_folder_name,jdbcType=VARCHAR}
+    where fav_id = #{fav_id,jdbcType=BIGINT}
+  </update>
+</mapper>

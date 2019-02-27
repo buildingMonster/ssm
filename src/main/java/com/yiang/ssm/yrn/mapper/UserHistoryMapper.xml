@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiang.ssm.yrn.mapper.UserHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.UserHistory" >
+    <constructor >
+      <idArg column="his_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="his_blog_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="his_viewer" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    his_id, his_blog_id, his_viewer
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_history
+    where his_id = #{his_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_history
+    where his_id = #{his_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.UserHistory" >
+    insert into user_history (his_id, his_blog_id, his_viewer
+      )
+    values (#{his_id,jdbcType=BIGINT}, #{his_blog_id,jdbcType=VARCHAR}, #{his_viewer,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.UserHistory" >
+    insert into user_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="his_id != null" >
+        his_id,
+      </if>
+      <if test="his_blog_id != null" >
+        his_blog_id,
+      </if>
+      <if test="his_viewer != null" >
+        his_viewer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="his_id != null" >
+        #{his_id,jdbcType=BIGINT},
+      </if>
+      <if test="his_blog_id != null" >
+        #{his_blog_id,jdbcType=VARCHAR},
+      </if>
+      <if test="his_viewer != null" >
+        #{his_viewer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.UserHistory" >
+    update user_history
+    <set >
+      <if test="his_blog_id != null" >
+        his_blog_id = #{his_blog_id,jdbcType=VARCHAR},
+      </if>
+      <if test="his_viewer != null" >
+        his_viewer = #{his_viewer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where his_id = #{his_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.UserHistory" >
+    update user_history
+    set his_blog_id = #{his_blog_id,jdbcType=VARCHAR},
+      his_viewer = #{his_viewer,jdbcType=VARCHAR}
+    where his_id = #{his_id,jdbcType=BIGINT}
+  </update>
+</mapper>

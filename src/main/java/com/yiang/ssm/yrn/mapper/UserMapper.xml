@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiang.ssm.yrn.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.User" >
+    <constructor >
+      <idArg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_flag" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_email" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_phone" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_register_date" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="user_qq" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_lastlogin_date" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="user_lastlogin_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_signature" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_image" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_birthdaty" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_profession" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_school" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, user_name, user_password, user_flag, user_email, user_phone, user_sex, user_register_date, 
+    user_qq, user_lastlogin_date, user_lastlogin_ip, user_signature, user_image, user_birthdaty, 
+    user_address, user_profession, user_school
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.User" >
+    insert into user (user_id, user_name, user_password, 
+      user_flag, user_email, user_phone, 
+      user_sex, user_register_date, user_qq, 
+      user_lastlogin_date, user_lastlogin_ip, user_signature, 
+      user_image, user_birthdaty, user_address, 
+      user_profession, user_school)
+    values (#{user_id,jdbcType=VARCHAR}, #{user_name,jdbcType=VARCHAR}, #{user_password,jdbcType=VARCHAR}, 
+      #{user_flag,jdbcType=INTEGER}, #{user_email,jdbcType=VARCHAR}, #{user_phone,jdbcType=VARCHAR}, 
+      #{user_sex,jdbcType=VARCHAR}, #{user_register_date,jdbcType=DATE}, #{user_qq,jdbcType=VARCHAR}, 
+      #{user_lastlogin_date,jdbcType=DATE}, #{user_lastlogin_ip,jdbcType=VARCHAR}, #{user_signature,jdbcType=VARCHAR}, 
+      #{user_image,jdbcType=VARCHAR}, #{user_birthdaty,jdbcType=VARCHAR}, #{user_address,jdbcType=VARCHAR}, 
+      #{user_profession,jdbcType=VARCHAR}, #{user_school,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="user_id != null" >
+        user_id,
+      </if>
+      <if test="user_name != null" >
+        user_name,
+      </if>
+      <if test="user_password != null" >
+        user_password,
+      </if>
+      <if test="user_flag != null" >
+        user_flag,
+      </if>
+      <if test="user_email != null" >
+        user_email,
+      </if>
+      <if test="user_phone != null" >
+        user_phone,
+      </if>
+      <if test="user_sex != null" >
+        user_sex,
+      </if>
+      <if test="user_register_date != null" >
+        user_register_date,
+      </if>
+      <if test="user_qq != null" >
+        user_qq,
+      </if>
+      <if test="user_lastlogin_date != null" >
+        user_lastlogin_date,
+      </if>
+      <if test="user_lastlogin_ip != null" >
+        user_lastlogin_ip,
+      </if>
+      <if test="user_signature != null" >
+        user_signature,
+      </if>
+      <if test="user_image != null" >
+        user_image,
+      </if>
+      <if test="user_birthdaty != null" >
+        user_birthdaty,
+      </if>
+      <if test="user_address != null" >
+        user_address,
+      </if>
+      <if test="user_profession != null" >
+        user_profession,
+      </if>
+      <if test="user_school != null" >
+        user_school,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="user_id != null" >
+        #{user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null" >
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null" >
+        #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="user_flag != null" >
+        #{user_flag,jdbcType=INTEGER},
+      </if>
+      <if test="user_email != null" >
+        #{user_email,jdbcType=VARCHAR},
+      </if>
+      <if test="user_phone != null" >
+        #{user_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="user_sex != null" >
+        #{user_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="user_register_date != null" >
+        #{user_register_date,jdbcType=DATE},
+      </if>
+      <if test="user_qq != null" >
+        #{user_qq,jdbcType=VARCHAR},
+      </if>
+      <if test="user_lastlogin_date != null" >
+        #{user_lastlogin_date,jdbcType=DATE},
+      </if>
+      <if test="user_lastlogin_ip != null" >
+        #{user_lastlogin_ip,jdbcType=VARCHAR},
+      </if>
+      <if test="user_signature != null" >
+        #{user_signature,jdbcType=VARCHAR},
+      </if>
+      <if test="user_image != null" >
+        #{user_image,jdbcType=VARCHAR},
+      </if>
+      <if test="user_birthdaty != null" >
+        #{user_birthdaty,jdbcType=VARCHAR},
+      </if>
+      <if test="user_address != null" >
+        #{user_address,jdbcType=VARCHAR},
+      </if>
+      <if test="user_profession != null" >
+        #{user_profession,jdbcType=VARCHAR},
+      </if>
+      <if test="user_school != null" >
+        #{user_school,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.User" >
+    update user
+    <set >
+      <if test="user_name != null" >
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null" >
+        user_password = #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="user_flag != null" >
+        user_flag = #{user_flag,jdbcType=INTEGER},
+      </if>
+      <if test="user_email != null" >
+        user_email = #{user_email,jdbcType=VARCHAR},
+      </if>
+      <if test="user_phone != null" >
+        user_phone = #{user_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="user_sex != null" >
+        user_sex = #{user_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="user_register_date != null" >
+        user_register_date = #{user_register_date,jdbcType=DATE},
+      </if>
+      <if test="user_qq != null" >
+        user_qq = #{user_qq,jdbcType=VARCHAR},
+      </if>
+      <if test="user_lastlogin_date != null" >
+        user_lastlogin_date = #{user_lastlogin_date,jdbcType=DATE},
+      </if>
+      <if test="user_lastlogin_ip != null" >
+        user_lastlogin_ip = #{user_lastlogin_ip,jdbcType=VARCHAR},
+      </if>
+      <if test="user_signature != null" >
+        user_signature = #{user_signature,jdbcType=VARCHAR},
+      </if>
+      <if test="user_image != null" >
+        user_image = #{user_image,jdbcType=VARCHAR},
+      </if>
+      <if test="user_birthdaty != null" >
+        user_birthdaty = #{user_birthdaty,jdbcType=VARCHAR},
+      </if>
+      <if test="user_address != null" >
+        user_address = #{user_address,jdbcType=VARCHAR},
+      </if>
+      <if test="user_profession != null" >
+        user_profession = #{user_profession,jdbcType=VARCHAR},
+      </if>
+      <if test="user_school != null" >
+        user_school = #{user_school,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.User" >
+    update user
+    set user_name = #{user_name,jdbcType=VARCHAR},
+      user_password = #{user_password,jdbcType=VARCHAR},
+      user_flag = #{user_flag,jdbcType=INTEGER},
+      user_email = #{user_email,jdbcType=VARCHAR},
+      user_phone = #{user_phone,jdbcType=VARCHAR},
+      user_sex = #{user_sex,jdbcType=VARCHAR},
+      user_register_date = #{user_register_date,jdbcType=DATE},
+      user_qq = #{user_qq,jdbcType=VARCHAR},
+      user_lastlogin_date = #{user_lastlogin_date,jdbcType=DATE},
+      user_lastlogin_ip = #{user_lastlogin_ip,jdbcType=VARCHAR},
+      user_signature = #{user_signature,jdbcType=VARCHAR},
+      user_image = #{user_image,jdbcType=VARCHAR},
+      user_birthdaty = #{user_birthdaty,jdbcType=VARCHAR},
+      user_address = #{user_address,jdbcType=VARCHAR},
+      user_profession = #{user_profession,jdbcType=VARCHAR},
+      user_school = #{user_school,jdbcType=VARCHAR}
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </update>
+</mapper>
