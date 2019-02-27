@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiang.ssm.rms.student.mapper.ssm_studentMapper">
+    <resultMap id="BaseResultMap" type="com.yiang.ssm.rms.student.model.ssm_student">
+        <constructor>
+            <idArg column="sid" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="sname" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="sex" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="stu_image_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+        sid
+        ,
+        sname,
+        sex,
+        stu_image_id
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from ssm_student
+        where sid = #{sid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from ssm_student
+        where sid = #{sid,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.yiang.ssm.rms.student.model.ssm_student">
+        insert into ssm_student (sid, sname, sex,
+                                 stu_image_id)
+        values (#{sid,jdbcType=VARCHAR}, #{sname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
+                #{stu_image_id,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.yiang.ssm.rms.student.model.ssm_student">
+        insert into ssm_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                sid,
+            </if>
+            <if test="sname != null">
+                sname,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="stu_image_id != null">
+                stu_image_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                #{sid,jdbcType=VARCHAR},
+            </if>
+            <if test="sname != null">
+                #{sname,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="stu_image_id != null">
+                #{stu_image_id,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.rms.student.model.ssm_student">
+        update ssm_student
+        <set>
+            <if test="sname != null">
+                sname = #{sname,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="stu_image_id != null">
+                stu_image_id = #{stu_image_id,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where sid = #{sid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.rms.student.model.ssm_student">
+        update ssm_student
+        set sname        = #{sname,jdbcType=VARCHAR},
+            sex          = #{sex,jdbcType=VARCHAR},
+            stu_image_id = #{stu_image_id,jdbcType=VARCHAR}
+        where sid = #{sid,jdbcType=VARCHAR}
+    </update>
+
+    <select id="queryStudentPager" parameterType="com.yiang.ssm.rms.student.model.ssm_student" resultType="com.yiang.ssm.rms.student.model.ssm_student">
+        select
+        <include refid="Base_Column_List"/>
+        from ssm_student
+        where 1=1
+        <if test="sname != null and '' != sname">
+            and sname like #{sname}
+        </if>
+    </select>
+</mapper>

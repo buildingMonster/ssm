@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiang.ssm.rms.student.mapper.ssm_imageMapper">
+    <resultMap id="BaseResultMap" type="com.yiang.ssm.rms.student.model.ssm_image">
+        <constructor>
+            <idArg column="image_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="image_name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="image_href" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="image_type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+        image_id
+        ,
+        image_name,
+        image_href,
+        image_type
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from ssm_image
+        where image_id = #{image_id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from ssm_image
+        where image_id = #{image_id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.yiang.ssm.rms.student.model.ssm_image">
+        insert into ssm_image (image_id, image_name, image_href,
+                               image_type)
+        values (#{image_id,jdbcType=VARCHAR}, #{image_name,jdbcType=VARCHAR}, #{image_href,jdbcType=VARCHAR},
+                #{image_type,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.yiang.ssm.rms.student.model.ssm_image">
+        insert into ssm_image
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="image_id != null">
+                image_id,
+            </if>
+            <if test="image_name != null">
+                image_name,
+            </if>
+            <if test="image_href != null">
+                image_href,
+            </if>
+            <if test="image_type != null">
+                image_type,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="image_id != null">
+                #{image_id,jdbcType=VARCHAR},
+            </if>
+            <if test="image_name != null">
+                #{image_name,jdbcType=VARCHAR},
+            </if>
+            <if test="image_href != null">
+                #{image_href,jdbcType=VARCHAR},
+            </if>
+            <if test="image_type != null">
+                #{image_type,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.rms.student.model.ssm_image">
+        update ssm_image
+        <set>
+            <if test="image_name != null">
+                image_name = #{image_name,jdbcType=VARCHAR},
+            </if>
+            <if test="image_href != null">
+                image_href = #{image_href,jdbcType=VARCHAR},
+            </if>
+            <if test="image_type != null">
+                image_type = #{image_type,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where image_id = #{image_id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.rms.student.model.ssm_image">
+        update ssm_image
+        set image_name = #{image_name,jdbcType=VARCHAR},
+            image_href = #{image_href,jdbcType=VARCHAR},
+            image_type = #{image_type,jdbcType=VARCHAR}
+        where image_id = #{image_id,jdbcType=VARCHAR}
+    </update>
+</mapper>
