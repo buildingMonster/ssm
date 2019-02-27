@@ -17,9 +17,9 @@ public class BasDict {
 
     private Long type_id;
 
-    private Long type_name;
+    private String type_name;
 
-    public BasDict(Long dict_id, String dict_type, String dict_item, String dict_value, Boolean dict_is_editable, Long label_id, Long label_name, Long type_id, Long type_name) {
+    public BasDict(Long dict_id, String dict_type, String dict_item, String dict_value, Boolean dict_is_editable, Long label_id, Long label_name, Long type_id, String type_name) {
         this.dict_id = dict_id;
         this.dict_type = dict_type;
         this.dict_item = dict_item;
@@ -99,11 +99,11 @@ public class BasDict {
         this.type_id = type_id;
     }
 
-    public Long getType_name() {
+    public String getType_name() {
         return type_name;
     }
 
-    public void setType_name(Long type_name) {
+    public void setType_name(String type_name) {
         this.type_name = type_name;
     }
 }

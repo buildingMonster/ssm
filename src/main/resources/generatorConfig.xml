@@ -7,7 +7,7 @@
 
     <!--指定数据库jdbc驱动jar包的位置 Maven仓库-->
     <classPathEntry
-            location="E:\javaMav\MyRepseitory\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar"/>
+            location="E:\initPath\mvn_repository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar"/>
 
     <!-- 一个数据库一个context -->
     <context id="infoGuardian">
@@ -160,7 +160,6 @@
 
             <property name="useActualColumnNames" value="true"/>
         </table>
-
 
     </context>
 </generatorConfiguration>

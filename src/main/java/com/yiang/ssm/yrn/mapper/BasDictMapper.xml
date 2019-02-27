@@ -11,7 +11,7 @@
       <arg column="label_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="label_name" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="type_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="type_name" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="type_name" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
@@ -35,7 +35,7 @@
       )
     values (#{dict_id,jdbcType=BIGINT}, #{dict_type,jdbcType=VARCHAR}, #{dict_item,jdbcType=VARCHAR}, 
       #{dict_value,jdbcType=VARCHAR}, #{dict_is_editable,jdbcType=BIT}, #{label_id,jdbcType=BIGINT}, 
-      #{label_name,jdbcType=BIGINT}, #{type_id,jdbcType=BIGINT}, #{type_name,jdbcType=BIGINT}
+      #{label_name,jdbcType=BIGINT}, #{type_id,jdbcType=BIGINT}, #{type_name,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.BasDict" >
@@ -95,7 +95,7 @@
         #{type_id,jdbcType=BIGINT},
       </if>
       <if test="type_name != null" >
-        #{type_name,jdbcType=BIGINT},
+        #{type_name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -124,7 +124,7 @@
         type_id = #{type_id,jdbcType=BIGINT},
       </if>
       <if test="type_name != null" >
-        type_name = #{type_name,jdbcType=BIGINT},
+        type_name = #{type_name,jdbcType=VARCHAR},
       </if>
     </set>
     where dict_id = #{dict_id,jdbcType=BIGINT}
@@ -138,7 +138,7 @@
       label_id = #{label_id,jdbcType=BIGINT},
       label_name = #{label_name,jdbcType=BIGINT},
       type_id = #{type_id,jdbcType=BIGINT},
-      type_name = #{type_name,jdbcType=BIGINT}
+      type_name = #{type_name,jdbcType=VARCHAR}
     where dict_id = #{dict_id,jdbcType=BIGINT}
   </update>
 </mapper>
