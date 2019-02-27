@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiang.ssm.yrn.mapper.UserFansMapper" >
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.UserFans" >
+    <constructor >
+      <idArg column="fans_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="fans_user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fans_by_user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fans_id, fans_user_id, fans_by_user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_fans
+    where fans_id = #{fans_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_fans
+    where fans_id = #{fans_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.UserFans" >
+    insert into user_fans (fans_id, fans_user_id, fans_by_user_id
+      )
+    values (#{fans_id,jdbcType=BIGINT}, #{fans_user_id,jdbcType=VARCHAR}, #{fans_by_user_id,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.UserFans" >
+    insert into user_fans
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fans_id != null" >
+        fans_id,
+      </if>
+      <if test="fans_user_id != null" >
+        fans_user_id,
+      </if>
+      <if test="fans_by_user_id != null" >
+        fans_by_user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fans_id != null" >
+        #{fans_id,jdbcType=BIGINT},
+      </if>
+      <if test="fans_user_id != null" >
+        #{fans_user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="fans_by_user_id != null" >
+        #{fans_by_user_id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.UserFans" >
+    update user_fans
+    <set >
+      <if test="fans_user_id != null" >
+        fans_user_id = #{fans_user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="fans_by_user_id != null" >
+        fans_by_user_id = #{fans_by_user_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fans_id = #{fans_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.UserFans" >
+    update user_fans
+    set fans_user_id = #{fans_user_id,jdbcType=VARCHAR},
+      fans_by_user_id = #{fans_by_user_id,jdbcType=VARCHAR}
+    where fans_id = #{fans_id,jdbcType=BIGINT}
+  </update>
+</mapper>
