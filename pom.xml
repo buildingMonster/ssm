@@ -329,7 +329,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+     <build>
         <finalName>ssm</finalName>
         <resources>
             <!--解决mybatis-generator-maven-plugin运行时没有将XxxMapper.xml文件放入target文件夹的问题-->
@@ -378,6 +378,7 @@
                         <overwrite>true</overwrite>
                     </configuration>
                 </plugin>
+
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>
@@ -391,10 +392,12 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.0</version>
                 </plugin>
+
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.22.1</version>
                 </plugin>
+
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.2.2</version>

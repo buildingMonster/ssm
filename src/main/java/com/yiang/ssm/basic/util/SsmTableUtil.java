@@ -37,8 +37,7 @@ public class SsmTableUtil {
         //数据初始化，key为数据库表名，value为实体类命名，（实体类命名要驼峰式哦！）
         //put("","");
         //--------------------填写对应数据层
-        put("ssm_student", "ssm_student");
-        put("ssm_image", "ssm_image");
+        put("bas_dict", "BasDict");
         //--------------------填写对应数据层
         run();//运行生成代码的方法
     }

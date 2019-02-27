@@ -7,7 +7,7 @@
 
     <!--指定数据库jdbc驱动jar包的位置 Maven仓库-->
     <classPathEntry
-            location="H:\\initPath\\mvn_warehouse\\mysql\\mysql-connector-java\\5.1.44\\mysql-connector-java-5.1.44.jar"/>
+            location="E:\javaMav\MyRepseitory\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar"/>
 
     <!-- 一个数据库一个context -->
     <context id="infoGuardian">
@@ -30,7 +30,7 @@
         <!-- 01 指定javaBean生成的位置 -->
         <!-- targetPackage：指定生成的model生成所在的包名 -->
         <!-- targetProject：指定在该项目下所在的路径  -->
-        <javaModelGenerator targetPackage="com.yiang.model"
+        <javaModelGenerator targetPackage="com.yiang.ssm.yrn.model"
                             targetProject="src/main/java">
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
@@ -43,7 +43,7 @@
         </javaModelGenerator>
 
         <!-- 02 指定sql映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="com.yiang.mapper"
+        <sqlMapGenerator targetPackage="com.yiang.ssm.yrn.mapper"
                          targetProject="src/main/java">
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
@@ -53,7 +53,7 @@
         <!-- type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象 -->
         <!-- type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象 -->
         <!-- type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口 -->
-        <javaClientGenerator targetPackage="com.yiang.mapper"
+        <javaClientGenerator targetPackage="com.yiang.ssm.yrn.mapper"
                              targetProject="src/main/java" type="XMLMAPPER">
             <!-- 是否在当前路径下新加一层schema,false路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
             <property name="enableSubPackages" value="false"/>
@@ -83,14 +83,81 @@
         <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->
         <!--  </table>-->
 
-        <!--配置表[ssm_image]的信息-->
-        <table schema="" tableName="ssm_image" domainObjectName="ssm_image" enableCountByExample="false"
+        <!--配置表[bas_dict]的信息-->
+        <table schema="" tableName="bas_dict" domainObjectName="BasDict" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
             <property name="useActualColumnNames" value="true"/>
         </table>
-        <!--配置表[ssm_student]的信息-->
-        <table schema="" tableName="ssm_student" domainObjectName="ssm_student" enableCountByExample="false"
+
+        <table schema="" tableName="blog" domainObjectName="Blog" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="blog_comment" domainObjectName="BlogComment" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="" tableName="blog_label" domainObjectName="BlogLabel" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="blog_plate" domainObjectName="BlogPlate" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user" domainObjectName="User" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user_concern" domainObjectName="UserConcern" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user_fans" domainObjectName="UserFans" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user_favorite" domainObjectName="UserFavorite" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user_feeback" domainObjectName="UserFeeback" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user_history" domainObjectName="UserHistory" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user_message" domainObjectName="UserMessage" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="" tableName="user_setting" domainObjectName="UserSetting" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+
             <property name="useActualColumnNames" value="true"/>
         </table>
 
