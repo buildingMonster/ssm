@@ -24,7 +24,19 @@
     from bas_dict
     where dict_id = #{dict_id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+
+  <!-- 博客分类 -->
+    <select id="queryBasDict" resultMap="BaseResultMap" parameterType="com.yiang.ssm.yrn.model.BasDict">
+      select
+      <include refid="Base_Column_List" />
+      from bas_dict
+      where 1=1
+      <if test="type_name!=null">
+         and type_name like #{type_name}
+      </if>
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from bas_dict
     where dict_id = #{dict_id,jdbcType=BIGINT}
   </delete>

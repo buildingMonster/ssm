@@ -1,7 +1,11 @@
 package com.yiang.ssm.yrn.mapper;
 
 import com.yiang.ssm.yrn.model.BasDict;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface BasDictMapper {
     int deleteByPrimaryKey(Long dict_id);
 
@@ -14,4 +18,6 @@ public interface BasDictMapper {
     int updateByPrimaryKeySelective(BasDict record);
 
     int updateByPrimaryKey(BasDict record);
+
+    List<BasDict> queryBasDict(BasDict basDict);
 }

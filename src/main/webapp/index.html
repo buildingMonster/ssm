@@ -26,6 +26,9 @@
 
         <!-- scripts -->
         <script type="text/javascript" src="assets/js/modernizr.custom.97074.js"></script>
+        <script src="static/basic/jquery/jquery-2.1.1.min.js"></script>
+        <script src="static/basic/vue/vue.js"></script>
+
 
     </head>
 
@@ -121,7 +124,7 @@
                                 <div class="intro-description">
                                     <h2>每日小叮当热推博文</h2>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ante ex, fermentum vel libero eget interdum semper libero. Curabitur egestas, arcu id tempor convallis.
+                                       。。。。
                                     </p>
 
                                     <ul class="points">
@@ -176,8 +179,13 @@
                         </div> <!-- /.headline -->
 
                         <div class="portfolio-item-list">
-                            <div class="row">
+                            <div class="row" >
 
+                                <div id="basdictImage">
+                                <!--
+                                index图片展示开始
+                                -->
+                                <template v-for="student in students">
                                 <div class="col-md-4 col-sm-6">
                                     <div class="portfolio-item">
                                         <div class="item-image">
@@ -191,11 +199,9 @@
                                             <div class="row">
                                                 <div class="col-xs-6">
                                                     <span class="item-name">
-                                                        实用软件
+                                                        {{student.type_name}}
                                                     </span>
-                                                    <span>
-                                                        Fashion
-                                                    </span>
+
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <span class="like">
@@ -205,258 +211,23 @@
                                                 </div>
                                             </div>
                                         </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
+                                     </div> <!-- end of /.portfolio-item -->
+                                 </div>
+                                </template>
                                 </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio2.jpg" class="img-responsive center-block" alt="portfolio2">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        原创技术
-                                                    </span>
-                                                    <span>
-                                                        Photography
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio3.jpg" class="img-responsive center-block" alt="portfolio3">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        娱乐爆料
-                                                    </span>
-                                                    <span>
-                                                        Web Design
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio4.jpg" class="img-responsive center-block" alt="portfolio4">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        技术分享
-                                                    </span>
-                                                    <span>
-                                                        Photography
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio5.jpg" class="img-responsive center-block" alt="portfolio5">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        编程专区
-                                                    </span>
-                                                    <span>
-                                                        Marketing
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio6.jpg" class="img-responsive center-block" alt="portfolio6">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        实用软件
-                                                    </span>
-                                                    <span>
-                                                        Business
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item --> 
-                                </div>
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio1.jpg" class="img-responsive center-block" alt="portfolio1">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        情感专区
-                                                    </span>
-                                                    <span>
-                                                        Fashion
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
+                                <!-- 图片展示end  -->
 
 
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio1.jpg" class="img-responsive center-block" alt="portfolio1">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        游戏专区
-                                                    </span>
-                                                    <span>
-                                                        Fashion
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end of /.item-description -->
-                                    </div> <!-- end of /.portfolio-item -->
-                                </div>
-
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="portfolio-item">
-                                        <div class="item-image">
-                                            <a href="#">
-                                                <img src="assets/img/portfolio1.jpg" class="img-responsive center-block" alt="portfolio1">
-                                                <div><span><i class="fa fa-plus"></i></span></div>
-                                            </a>
-                                        </div>
-
-                                        <div class="item-description">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <span class="item-name">
-                                                        其他分类
-                                                    </span>
-                                                    <span>
-                                                        Fashion
-                                                    </span>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <span class="like">
-                                                        <i class="fa fa-heart-o"></i>
-                                                        576
-                                                    </span>
-                                                </div>
-                                            </div>
                                         </div> <!-- end of /.item-description -->
                                     </div> <!-- end of /.portfolio-item -->
                                 </div>
 
 
 
-                            </div>
-                        </div> <!-- end of portfolio-item-list -->
+                            <!--</div>-->
+                        <!--</div> &lt;!&ndash; end of portfolio-item-list &ndash;&gt;-->
                             
-                    </div>
+                    <!--</div>-->
                 </section> <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
                 <!--   end of portfolio section  -->
 
@@ -567,6 +338,8 @@
             });
         </script>
 
+
+        <script src="static/yrn/js"></script>
 
     </body>
 </html>
