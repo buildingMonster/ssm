@@ -12,7 +12,7 @@
     <!-- 用注解方式注入bean，并指定查找范围：com.yiang及子子孙孙包-->
     <context:component-scan base-package="com.yiang"/>
     <!--2、注册JDBC配置文件信息-->
-    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <!--3、建立数据库连接池信息-->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
           destroy-method="close">
