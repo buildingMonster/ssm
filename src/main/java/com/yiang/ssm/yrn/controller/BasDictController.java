@@ -1,6 +1,8 @@
 package com.yiang.ssm.yrn.controller;
 
 import com.yiang.ssm.basic.util.PageBean;
+import com.yiang.ssm.basic.util.QueryUtil;
+import com.yiang.ssm.basic.util.StringUtils;
 import com.yiang.ssm.yrn.model.BasDict;
 import com.yiang.ssm.yrn.service.IBasDictService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,9 @@ public class BasDictController {
         PageBean pageBean=new PageBean();
         pageBean.setRequest(request);
         pageBean.setRows(9);
+        if (StringUtils.isNotBlank(basDict.getType_name())){
+            basDict.setType_name(QueryUtil.append(basDict.getType_name()));
+        }
         List<BasDict> basDictList = iBasDictService.queryBasDictPager(basDict, pageBean);
         return basDictList;
     }
