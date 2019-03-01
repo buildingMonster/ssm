@@ -1,41 +1,41 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiang.ssm.yrn.mapper.BlogMapper" >
-  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.Blog" >
-    <constructor >
-      <idArg column="blog_id" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="blog_title" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="blog_conten" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="blog_create_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="blog_create_name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="blog_create_image" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="blog_create_time" jdbcType="DATE" javaType="java.util.Date" />
-      <arg column="blog_pageview" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="blog_plate_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="blog_type_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="blog_type_name" jdbcType="DATE" javaType="java.util.Date" />
-      <arg column="blog_praise" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="blog_comment" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="blog_comment_time" jdbcType="DATE" javaType="java.util.Date" />
-      <arg column="blog_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiang.ssm.yrn.mapper.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.Blog">
+    <constructor>
+      <idArg column="blog_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="blog_title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="blog_conten" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="blog_create_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="blog_create_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="blog_create_image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="blog_create_time" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="blog_pageview" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="blog_plate_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="blog_type_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="blog_type_name" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="blog_praise" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="blog_comment" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="blog_comment_time" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="blog_status" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     blog_id, blog_title, blog_conten, blog_create_id, blog_create_name, blog_create_image, 
     blog_create_time, blog_pageview, blog_plate_id, blog_type_id, blog_type_name, blog_praise, 
     blog_comment, blog_comment_time, blog_status
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from blog
     where blog_id = #{blog_id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from blog
     where blog_id = #{blog_id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.Blog" >
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.Blog">
     insert into blog (blog_id, blog_title, blog_conten, 
       blog_create_id, blog_create_name, blog_create_image, 
       blog_create_time, blog_pageview, blog_plate_id, 
@@ -49,152 +49,152 @@
       #{blog_comment,jdbcType=BIGINT}, #{blog_comment_time,jdbcType=DATE}, #{blog_status,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.Blog" >
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.Blog">
     insert into blog
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="blog_id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="blog_id != null">
         blog_id,
       </if>
-      <if test="blog_title != null" >
+      <if test="blog_title != null">
         blog_title,
       </if>
-      <if test="blog_conten != null" >
+      <if test="blog_conten != null">
         blog_conten,
       </if>
-      <if test="blog_create_id != null" >
+      <if test="blog_create_id != null">
         blog_create_id,
       </if>
-      <if test="blog_create_name != null" >
+      <if test="blog_create_name != null">
         blog_create_name,
       </if>
-      <if test="blog_create_image != null" >
+      <if test="blog_create_image != null">
         blog_create_image,
       </if>
-      <if test="blog_create_time != null" >
+      <if test="blog_create_time != null">
         blog_create_time,
       </if>
-      <if test="blog_pageview != null" >
+      <if test="blog_pageview != null">
         blog_pageview,
       </if>
-      <if test="blog_plate_id != null" >
+      <if test="blog_plate_id != null">
         blog_plate_id,
       </if>
-      <if test="blog_type_id != null" >
+      <if test="blog_type_id != null">
         blog_type_id,
       </if>
-      <if test="blog_type_name != null" >
+      <if test="blog_type_name != null">
         blog_type_name,
       </if>
-      <if test="blog_praise != null" >
+      <if test="blog_praise != null">
         blog_praise,
       </if>
-      <if test="blog_comment != null" >
+      <if test="blog_comment != null">
         blog_comment,
       </if>
-      <if test="blog_comment_time != null" >
+      <if test="blog_comment_time != null">
         blog_comment_time,
       </if>
-      <if test="blog_status != null" >
+      <if test="blog_status != null">
         blog_status,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="blog_id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="blog_id != null">
         #{blog_id,jdbcType=VARCHAR},
       </if>
-      <if test="blog_title != null" >
+      <if test="blog_title != null">
         #{blog_title,jdbcType=VARCHAR},
       </if>
-      <if test="blog_conten != null" >
+      <if test="blog_conten != null">
         #{blog_conten,jdbcType=VARCHAR},
       </if>
-      <if test="blog_create_id != null" >
+      <if test="blog_create_id != null">
         #{blog_create_id,jdbcType=BIGINT},
       </if>
-      <if test="blog_create_name != null" >
+      <if test="blog_create_name != null">
         #{blog_create_name,jdbcType=VARCHAR},
       </if>
-      <if test="blog_create_image != null" >
+      <if test="blog_create_image != null">
         #{blog_create_image,jdbcType=VARCHAR},
       </if>
-      <if test="blog_create_time != null" >
+      <if test="blog_create_time != null">
         #{blog_create_time,jdbcType=DATE},
       </if>
-      <if test="blog_pageview != null" >
+      <if test="blog_pageview != null">
         #{blog_pageview,jdbcType=BIGINT},
       </if>
-      <if test="blog_plate_id != null" >
+      <if test="blog_plate_id != null">
         #{blog_plate_id,jdbcType=BIGINT},
       </if>
-      <if test="blog_type_id != null" >
+      <if test="blog_type_id != null">
         #{blog_type_id,jdbcType=BIGINT},
       </if>
-      <if test="blog_type_name != null" >
+      <if test="blog_type_name != null">
         #{blog_type_name,jdbcType=DATE},
       </if>
-      <if test="blog_praise != null" >
+      <if test="blog_praise != null">
         #{blog_praise,jdbcType=BIGINT},
       </if>
-      <if test="blog_comment != null" >
+      <if test="blog_comment != null">
         #{blog_comment,jdbcType=BIGINT},
       </if>
-      <if test="blog_comment_time != null" >
+      <if test="blog_comment_time != null">
         #{blog_comment_time,jdbcType=DATE},
       </if>
-      <if test="blog_status != null" >
+      <if test="blog_status != null">
         #{blog_status,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.Blog" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.Blog">
     update blog
-    <set >
-      <if test="blog_title != null" >
+    <set>
+      <if test="blog_title != null">
         blog_title = #{blog_title,jdbcType=VARCHAR},
       </if>
-      <if test="blog_conten != null" >
+      <if test="blog_conten != null">
         blog_conten = #{blog_conten,jdbcType=VARCHAR},
       </if>
-      <if test="blog_create_id != null" >
+      <if test="blog_create_id != null">
         blog_create_id = #{blog_create_id,jdbcType=BIGINT},
       </if>
-      <if test="blog_create_name != null" >
+      <if test="blog_create_name != null">
         blog_create_name = #{blog_create_name,jdbcType=VARCHAR},
       </if>
-      <if test="blog_create_image != null" >
+      <if test="blog_create_image != null">
         blog_create_image = #{blog_create_image,jdbcType=VARCHAR},
       </if>
-      <if test="blog_create_time != null" >
+      <if test="blog_create_time != null">
         blog_create_time = #{blog_create_time,jdbcType=DATE},
       </if>
-      <if test="blog_pageview != null" >
+      <if test="blog_pageview != null">
         blog_pageview = #{blog_pageview,jdbcType=BIGINT},
       </if>
-      <if test="blog_plate_id != null" >
+      <if test="blog_plate_id != null">
         blog_plate_id = #{blog_plate_id,jdbcType=BIGINT},
       </if>
-      <if test="blog_type_id != null" >
+      <if test="blog_type_id != null">
         blog_type_id = #{blog_type_id,jdbcType=BIGINT},
       </if>
-      <if test="blog_type_name != null" >
+      <if test="blog_type_name != null">
         blog_type_name = #{blog_type_name,jdbcType=DATE},
       </if>
-      <if test="blog_praise != null" >
+      <if test="blog_praise != null">
         blog_praise = #{blog_praise,jdbcType=BIGINT},
       </if>
-      <if test="blog_comment != null" >
+      <if test="blog_comment != null">
         blog_comment = #{blog_comment,jdbcType=BIGINT},
       </if>
-      <if test="blog_comment_time != null" >
+      <if test="blog_comment_time != null">
         blog_comment_time = #{blog_comment_time,jdbcType=DATE},
       </if>
-      <if test="blog_status != null" >
+      <if test="blog_status != null">
         blog_status = #{blog_status,jdbcType=INTEGER},
       </if>
     </set>
     where blog_id = #{blog_id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.Blog" >
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.Blog">
     update blog
     set blog_title = #{blog_title,jdbcType=VARCHAR},
       blog_conten = #{blog_conten,jdbcType=VARCHAR},

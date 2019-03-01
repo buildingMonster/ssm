@@ -1,32 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiang.ssm.yrn.mapper.BlogCommentMapper" >
-  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.BlogComment" >
-    <constructor >
-      <idArg column="com_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="com_user_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="com_date" jdbcType="DATE" javaType="java.util.Date" />
-      <arg column="com_text" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="com_type" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="com_blog_id" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="com_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="com_by_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiang.ssm.yrn.mapper.BlogCommentMapper">
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.BlogComment">
+    <constructor>
+      <idArg column="com_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_user_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="com_text" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="com_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="com_blog_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="com_status" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="com_by_id" javaType="java.lang.Long" jdbcType="BIGINT" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     com_id, com_user_id, com_date, com_text, com_type, com_blog_id, com_status, com_by_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from blog_comment
     where com_id = #{com_id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from blog_comment
     where com_id = #{com_id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.BlogComment" >
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.BlogComment">
     insert into blog_comment (com_id, com_user_id, com_date, 
       com_text, com_type, com_blog_id, 
       com_status, com_by_id)
@@ -34,89 +34,89 @@
       #{com_text,jdbcType=VARCHAR}, #{com_type,jdbcType=VARCHAR}, #{com_blog_id,jdbcType=VARCHAR}, 
       #{com_status,jdbcType=INTEGER}, #{com_by_id,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.BlogComment" >
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.BlogComment">
     insert into blog_comment
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="com_id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="com_id != null">
         com_id,
       </if>
-      <if test="com_user_id != null" >
+      <if test="com_user_id != null">
         com_user_id,
       </if>
-      <if test="com_date != null" >
+      <if test="com_date != null">
         com_date,
       </if>
-      <if test="com_text != null" >
+      <if test="com_text != null">
         com_text,
       </if>
-      <if test="com_type != null" >
+      <if test="com_type != null">
         com_type,
       </if>
-      <if test="com_blog_id != null" >
+      <if test="com_blog_id != null">
         com_blog_id,
       </if>
-      <if test="com_status != null" >
+      <if test="com_status != null">
         com_status,
       </if>
-      <if test="com_by_id != null" >
+      <if test="com_by_id != null">
         com_by_id,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="com_id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="com_id != null">
         #{com_id,jdbcType=BIGINT},
       </if>
-      <if test="com_user_id != null" >
+      <if test="com_user_id != null">
         #{com_user_id,jdbcType=BIGINT},
       </if>
-      <if test="com_date != null" >
+      <if test="com_date != null">
         #{com_date,jdbcType=DATE},
       </if>
-      <if test="com_text != null" >
+      <if test="com_text != null">
         #{com_text,jdbcType=VARCHAR},
       </if>
-      <if test="com_type != null" >
+      <if test="com_type != null">
         #{com_type,jdbcType=VARCHAR},
       </if>
-      <if test="com_blog_id != null" >
+      <if test="com_blog_id != null">
         #{com_blog_id,jdbcType=VARCHAR},
       </if>
-      <if test="com_status != null" >
+      <if test="com_status != null">
         #{com_status,jdbcType=INTEGER},
       </if>
-      <if test="com_by_id != null" >
+      <if test="com_by_id != null">
         #{com_by_id,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.BlogComment" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.BlogComment">
     update blog_comment
-    <set >
-      <if test="com_user_id != null" >
+    <set>
+      <if test="com_user_id != null">
         com_user_id = #{com_user_id,jdbcType=BIGINT},
       </if>
-      <if test="com_date != null" >
+      <if test="com_date != null">
         com_date = #{com_date,jdbcType=DATE},
       </if>
-      <if test="com_text != null" >
+      <if test="com_text != null">
         com_text = #{com_text,jdbcType=VARCHAR},
       </if>
-      <if test="com_type != null" >
+      <if test="com_type != null">
         com_type = #{com_type,jdbcType=VARCHAR},
       </if>
-      <if test="com_blog_id != null" >
+      <if test="com_blog_id != null">
         com_blog_id = #{com_blog_id,jdbcType=VARCHAR},
       </if>
-      <if test="com_status != null" >
+      <if test="com_status != null">
         com_status = #{com_status,jdbcType=INTEGER},
       </if>
-      <if test="com_by_id != null" >
+      <if test="com_by_id != null">
         com_by_id = #{com_by_id,jdbcType=BIGINT},
       </if>
     </set>
     where com_id = #{com_id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.BlogComment" >
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.BlogComment">
     update blog_comment
     set com_user_id = #{com_user_id,jdbcType=BIGINT},
       com_date = #{com_date,jdbcType=DATE},

@@ -1,70 +1,70 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiang.ssm.yrn.mapper.BlogLabelMapper" >
-  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.BlogLabel" >
-    <constructor >
-      <idArg column="bl_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="bl_label_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="bl_blog_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiang.ssm.yrn.mapper.BlogLabelMapper">
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.BlogLabel">
+    <constructor>
+      <idArg column="bl_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="bl_label_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="bl_blog_id" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     bl_id, bl_label_id, bl_blog_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from blog_label
     where bl_id = #{bl_id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from blog_label
     where bl_id = #{bl_id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.BlogLabel" >
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.BlogLabel">
     insert into blog_label (bl_id, bl_label_id, bl_blog_id
       )
     values (#{bl_id,jdbcType=BIGINT}, #{bl_label_id,jdbcType=BIGINT}, #{bl_blog_id,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.BlogLabel" >
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.BlogLabel">
     insert into blog_label
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="bl_id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bl_id != null">
         bl_id,
       </if>
-      <if test="bl_label_id != null" >
+      <if test="bl_label_id != null">
         bl_label_id,
       </if>
-      <if test="bl_blog_id != null" >
+      <if test="bl_blog_id != null">
         bl_blog_id,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="bl_id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bl_id != null">
         #{bl_id,jdbcType=BIGINT},
       </if>
-      <if test="bl_label_id != null" >
+      <if test="bl_label_id != null">
         #{bl_label_id,jdbcType=BIGINT},
       </if>
-      <if test="bl_blog_id != null" >
+      <if test="bl_blog_id != null">
         #{bl_blog_id,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.BlogLabel" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.BlogLabel">
     update blog_label
-    <set >
-      <if test="bl_label_id != null" >
+    <set>
+      <if test="bl_label_id != null">
         bl_label_id = #{bl_label_id,jdbcType=BIGINT},
       </if>
-      <if test="bl_blog_id != null" >
+      <if test="bl_blog_id != null">
         bl_blog_id = #{bl_blog_id,jdbcType=VARCHAR},
       </if>
     </set>
     where bl_id = #{bl_id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.BlogLabel" >
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.BlogLabel">
     update blog_label
     set bl_label_id = #{bl_label_id,jdbcType=BIGINT},
       bl_blog_id = #{bl_blog_id,jdbcType=VARCHAR}

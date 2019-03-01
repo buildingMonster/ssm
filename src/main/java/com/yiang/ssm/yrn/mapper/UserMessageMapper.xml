@@ -1,80 +1,80 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiang.ssm.yrn.mapper.UserMessageMapper" >
-  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.UserMessage" >
-    <constructor >
-      <idArg column="mes_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="mes_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="mes_receiver" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="mes_sender" jdbcType="VARCHAR" javaType="java.lang.String" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiang.ssm.yrn.mapper.UserMessageMapper">
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.UserMessage">
+    <constructor>
+      <idArg column="mes_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="mes_type" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="mes_receiver" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mes_sender" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     mes_id, mes_type, mes_receiver, mes_sender
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user_message
     where mes_id = #{mes_id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from user_message
     where mes_id = #{mes_id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.UserMessage" >
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.UserMessage">
     insert into user_message (mes_id, mes_type, mes_receiver, 
       mes_sender)
     values (#{mes_id,jdbcType=BIGINT}, #{mes_type,jdbcType=INTEGER}, #{mes_receiver,jdbcType=VARCHAR}, 
       #{mes_sender,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.UserMessage" >
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.UserMessage">
     insert into user_message
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="mes_id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mes_id != null">
         mes_id,
       </if>
-      <if test="mes_type != null" >
+      <if test="mes_type != null">
         mes_type,
       </if>
-      <if test="mes_receiver != null" >
+      <if test="mes_receiver != null">
         mes_receiver,
       </if>
-      <if test="mes_sender != null" >
+      <if test="mes_sender != null">
         mes_sender,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="mes_id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mes_id != null">
         #{mes_id,jdbcType=BIGINT},
       </if>
-      <if test="mes_type != null" >
+      <if test="mes_type != null">
         #{mes_type,jdbcType=INTEGER},
       </if>
-      <if test="mes_receiver != null" >
+      <if test="mes_receiver != null">
         #{mes_receiver,jdbcType=VARCHAR},
       </if>
-      <if test="mes_sender != null" >
+      <if test="mes_sender != null">
         #{mes_sender,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.UserMessage" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.UserMessage">
     update user_message
-    <set >
-      <if test="mes_type != null" >
+    <set>
+      <if test="mes_type != null">
         mes_type = #{mes_type,jdbcType=INTEGER},
       </if>
-      <if test="mes_receiver != null" >
+      <if test="mes_receiver != null">
         mes_receiver = #{mes_receiver,jdbcType=VARCHAR},
       </if>
-      <if test="mes_sender != null" >
+      <if test="mes_sender != null">
         mes_sender = #{mes_sender,jdbcType=VARCHAR},
       </if>
     </set>
     where mes_id = #{mes_id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.UserMessage" >
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.UserMessage">
     update user_message
     set mes_type = #{mes_type,jdbcType=INTEGER},
       mes_receiver = #{mes_receiver,jdbcType=VARCHAR},

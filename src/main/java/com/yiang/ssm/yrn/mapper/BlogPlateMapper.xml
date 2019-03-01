@@ -1,90 +1,90 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yiang.ssm.yrn.mapper.BlogPlateMapper" >
-  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.BlogPlate" >
-    <constructor >
-      <idArg column="pla_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="pla_name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="pla_todo" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="pla_create_date" jdbcType="DATE" javaType="java.util.Date" />
-      <arg column="pla_enabled" jdbcType="INTEGER" javaType="java.lang.Integer" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiang.ssm.yrn.mapper.BlogPlateMapper">
+  <resultMap id="BaseResultMap" type="com.yiang.ssm.yrn.model.BlogPlate">
+    <constructor>
+      <idArg column="pla_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="pla_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pla_todo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pla_create_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="pla_enabled" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     pla_id, pla_name, pla_todo, pla_create_date, pla_enabled
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from blog_plate
     where pla_id = #{pla_id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from blog_plate
     where pla_id = #{pla_id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.BlogPlate" >
+  <insert id="insert" parameterType="com.yiang.ssm.yrn.model.BlogPlate">
     insert into blog_plate (pla_id, pla_name, pla_todo, 
       pla_create_date, pla_enabled)
     values (#{pla_id,jdbcType=BIGINT}, #{pla_name,jdbcType=VARCHAR}, #{pla_todo,jdbcType=VARCHAR}, 
       #{pla_create_date,jdbcType=DATE}, #{pla_enabled,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.BlogPlate" >
+  <insert id="insertSelective" parameterType="com.yiang.ssm.yrn.model.BlogPlate">
     insert into blog_plate
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="pla_id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pla_id != null">
         pla_id,
       </if>
-      <if test="pla_name != null" >
+      <if test="pla_name != null">
         pla_name,
       </if>
-      <if test="pla_todo != null" >
+      <if test="pla_todo != null">
         pla_todo,
       </if>
-      <if test="pla_create_date != null" >
+      <if test="pla_create_date != null">
         pla_create_date,
       </if>
-      <if test="pla_enabled != null" >
+      <if test="pla_enabled != null">
         pla_enabled,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="pla_id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pla_id != null">
         #{pla_id,jdbcType=BIGINT},
       </if>
-      <if test="pla_name != null" >
+      <if test="pla_name != null">
         #{pla_name,jdbcType=VARCHAR},
       </if>
-      <if test="pla_todo != null" >
+      <if test="pla_todo != null">
         #{pla_todo,jdbcType=VARCHAR},
       </if>
-      <if test="pla_create_date != null" >
+      <if test="pla_create_date != null">
         #{pla_create_date,jdbcType=DATE},
       </if>
-      <if test="pla_enabled != null" >
+      <if test="pla_enabled != null">
         #{pla_enabled,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.BlogPlate" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.yiang.ssm.yrn.model.BlogPlate">
     update blog_plate
-    <set >
-      <if test="pla_name != null" >
+    <set>
+      <if test="pla_name != null">
         pla_name = #{pla_name,jdbcType=VARCHAR},
       </if>
-      <if test="pla_todo != null" >
+      <if test="pla_todo != null">
         pla_todo = #{pla_todo,jdbcType=VARCHAR},
       </if>
-      <if test="pla_create_date != null" >
+      <if test="pla_create_date != null">
         pla_create_date = #{pla_create_date,jdbcType=DATE},
       </if>
-      <if test="pla_enabled != null" >
+      <if test="pla_enabled != null">
         pla_enabled = #{pla_enabled,jdbcType=INTEGER},
       </if>
     </set>
     where pla_id = #{pla_id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.BlogPlate" >
+  <update id="updateByPrimaryKey" parameterType="com.yiang.ssm.yrn.model.BlogPlate">
     update blog_plate
     set pla_name = #{pla_name,jdbcType=VARCHAR},
       pla_todo = #{pla_todo,jdbcType=VARCHAR},

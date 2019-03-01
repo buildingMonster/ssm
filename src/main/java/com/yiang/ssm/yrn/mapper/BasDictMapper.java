@@ -4,7 +4,6 @@ import com.yiang.ssm.yrn.model.BasDict;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
 @Repository
 public interface BasDictMapper {
     int deleteByPrimaryKey(Long dict_id);

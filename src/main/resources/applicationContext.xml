@@ -14,5 +14,5 @@
     <!--<import resource="applicationContext-ehcache.xml"></import>-->
 
     <!--引入Redis配置文件-->
-    <import resource="applicationContext-redis.xml"/>
+    <!--<import resource="applicationContext-redis.xml"/>-->
 </beans>
